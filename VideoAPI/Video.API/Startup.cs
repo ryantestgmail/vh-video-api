@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.FeatureManagement;
 using Microsoft.IdentityModel.Tokens;
 using Video.API.Extensions;
 using Video.API.ValidationMiddleware;
@@ -33,6 +34,7 @@ namespace Video.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddSwagger();
+            services.AddFeatureManagement();
             services.AddCors(options => options.AddPolicy("CorsPolicy",
                 builder =>
                 {
